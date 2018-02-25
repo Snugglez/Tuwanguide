@@ -11,4 +11,6 @@ Simple? yea simple
 
 Command to toggle off `!tuwang` or just `tuwang` if in proxy chat
 
+Command to toggle color mode `!tucolor` or just `tucolor` if in proxy chat
+
 Command required, but really... if you don't have command, the fuck even by now, go get command
