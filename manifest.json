@@ -1,10 +1,10 @@
 {
   "files": {
-    "config.json": "f69597ee6683b54601c39594e93aa5f36cfe01999f3366d8de73f1b529830b9c",
-    "index.js": "3f43b022c3df0b01efc37ca4471b51588ff2cec1a9481816a76ca0fe11ff0d5a",
-    "module.json": "11290acf3fc57fcd1ebd9820fb234f845c3f41d81d0e4a211114d2185c8f5e87",
-    "README.md": "b18e7634152eb60b26005be56b38be978c2c5644d8187a2174c5c59b0528ca30"
-  },
+    "config.json": "b38592bb5bcb1a01175eda450093b8ea76b99f172eb1d4cca347ca5e0723eb27",
+    "index.js": "e7544fcb8b467dd732062cb5f1594d8028b481603d22f2f062ee69092f222de3",
+    "module.json": "eb6137a384ee2409f662fc498d2100b02b2b04066988fd8a96e8967f6eceaafc",
+    "README.md": "a559843f12ecb5cb1f94832e95d8ce295c9ffe935d1d20e1ce4a50a0e6c4eab8"
+    },
          "defs": {
     "S_LOGIN": 1,
 	"S_DUNGEON_EVENT_MESSAGE": 1,
