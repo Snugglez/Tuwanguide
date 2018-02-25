@@ -4,7 +4,6 @@ module.exports = function tuwang (dispatch) {
   const command = Command(dispatch)
   let enabled = config.enabled
   let color = config.color
-  let cid
   let attachedHooks = []
   let hooks = {
     'S_DUNGEON_EVENT_MESSAGE': {
@@ -42,13 +41,11 @@ module.exports = function tuwang (dispatch) {
   }
 
   function dungeonEventHandler (event) {
-    command.message(`DEBUG, ${event.message}`)
     if (event.message.includes('700102016')) { command.message('_________') }
-    // 700102017 to end
+    // 700102017 for the start message
   }
 
   function actionStageHandler (event) {
-    command.message(`DEBUG, ${event.target}, ${cid}, ${event.skill}, ${event.templateId}`)
     if (!(event.skill === 1181680719 || event.skill === 1181680720)) return
     switch (event.templateId) {
       case 1001:
@@ -74,7 +71,6 @@ module.exports = function tuwang (dispatch) {
   }
 
   dispatch.hook('S_LOGIN', 1, (event) => {
-    cid = event.cid
     if (enabled) enable()
   })
 }
