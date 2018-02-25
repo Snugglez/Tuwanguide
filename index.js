@@ -1,69 +1,80 @@
-const config = require('./config.json');
-const Command = require('command');
-module.exports = function tuwang(dispatch) {
-const command = Command(dispatch)
-let enabled = config.toggle;
-let color = config.noColor;
-let	cid = null
-dispatch.hook('S_LOGIN', 1, (event) => {({cid} = event)});
-//Chat channel example
-/*dispatch.toClient('S_CHAT', 1, {
-channel: 24,
-uthorID: 0,
-unk1: 0,
-gm: 0,
-unk2: 0,
-authorName: '',
-message: 'PINK'})*/
+const config = require('./config.json')
+const Command = require('command')
+module.exports = function tuwang (dispatch) {
+  const command = Command(dispatch)
+  let enabled = config.enabled
+  let color = config.color
+  let cid
+  let attachedHooks = []
+  let hooks = {
+    'S_DUNGEON_EVENT_MESSAGE': {
+      'version': 1,
+      'function': dungeonEventHandler
+    },
+    'S_ACTION_STAGE': {
+      'version': 3,
+      'function': actionStageHandler
+    }
+  }
 
-command.add('tuwang', () => {
-enabled = !enabled
-command.message(`Tuwang is now ${enabled ? 'enabled' : 'disabled'}.`)})
+  command.add('tuwang', () => {
+    if (enabled) disable()
+    else enable()
+    command.message(`Tuwang is now ${enabled ? 'enabled' : 'disabled'}.`)
+  })
 
-command.add('tucolor', () => {
-color = !color
-command.message(`No color is now ${color ? 'enabled' : 'disabled'}.`)})
+  command.add('tucolor', () => {
+    color = !color
+    command.message(`Color is now ${color ? 'enabled' : 'disabled'}.`)
+  })
 
-dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 1, (event) => {
-if(!enabled) return;
-if(event.message.includes('700102016'))
-command.message('_________')
-})
+  function enable () {
+    for (let key in hooks) {
+      let hook = hooks[key]
+      attachedHooks.push(dispatch.hook(key, hook.version, hook.function))
+    }
+    enabled = true
+  }
 
-dispatch.hook('S_ACTION_STAGE', 3, (event) => {
-if(!enabled) return;
-if(event.target = cid)
-if(event.skill === 1181680719 || event.skill === 1181680720)
-if(event.templateId === 1001)
-if(!color) command.message('<font color="#fc76d4">PINK</font>')
-else command.message('PINK')
-})
+  function disable () {
+    for (let hook of attachedHooks) dispatch.unhook(hook)
+    enabled = false
+  }
 
-dispatch.hook('S_ACTION_STAGE', 3, (event) => {
-if(!enabled) return;
-if(event.target = cid)
-if(event.skill === 1181680719 || event.skill === 1181680720)
-if(event.templateId === 1002)
-if(!color) command.message('<font color="#76fc78">GREEN</font>')
-else command.message('GREEN')
-})
+  function dungeonEventHandler (event) {
+    command.message(`DEBUG, ${event.message}`)
+    if (event.message.includes('700102016')) { command.message('_________') }
+    // 700102017 to end
+  }
 
-dispatch.hook('S_ACTION_STAGE', 3, (event) => {
-if(!enabled) return;
-if(event.target = cid)
-if(event.skill === 1181680719 || event.skill === 1181680720)
-if(event.templateId === 1003)
-if(!color) command.message('<font color="#fc7676">RED</font>')
-else command.message('RED')
-})
+  function actionStageHandler (event) {
+    command.message(`DEBUG, ${event.target}, ${cid}, ${event.skill}, ${event.templateId}`)
+    if (!(event.skill === 1181680719 || event.skill === 1181680720)) return
+    switch (event.templateId) {
+      case 1001:
+        if (color) command.message('<font color="#fc76d4">PINK</font>')
+        else command.message('PINK')
+        break
 
-dispatch.hook('S_ACTION_STAGE', 3, (event) => {
-if(!enabled) return;
-if(event.target = cid)
-if(event.skill === 1181680719 || event.skill === 1181680720)
-if(event.templateId === 1004)
-if(!color) command.message('<font color="#7676fc">BLUE</font>')
-else command.message('BLUE')
-})
+      case 1002:
+        if (color) command.message('<font color="#76fc78">GREEN</font>')
+        else command.message('GREEN')
+        break
+
+      case 1003:
+        if (color) command.message('<font color="#fc7676">RED</font>')
+        else command.message('RED')
+        break
+
+      case 1004:
+        if (color) command.message('<font color="#7676fc">BLUE</font>')
+        else command.message('BLUE')
+        break
+    }
+  }
+
+  dispatch.hook('S_LOGIN', 1, (event) => {
+    cid = event.cid
+    if (enabled) enable()
+  })
 }
-
