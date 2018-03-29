@@ -1,8 +1,7 @@
 {
     "defs": {
         "S_ACTION_STAGE": 3,
-        "S_DUNGEON_EVENT_MESSAGE": 1,
-        "S_LOGIN": 1
+        "S_DUNGEON_EVENT_MESSAGE": 1
     },
     "files": {
         "README.md": "3793bacdaea7cc6ba82f128a279ce329818d5e8784f655d33d498c4a65c098d7",
