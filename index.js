@@ -70,7 +70,4 @@ module.exports = function tuwang (dispatch) {
     }
   }
 
-  dispatch.hook('S_LOGIN', 1, (event) => {
-    if (enabled) enable()
-  })
 }
