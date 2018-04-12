@@ -11,7 +11,7 @@ module.exports = function tuwang (dispatch) {
       'function': dungeonEventHandler
     },
     'S_ACTION_STAGE': {
-      'version': 3,
+      'version': 4,
       'function': actionStageHandler
     }
   }
