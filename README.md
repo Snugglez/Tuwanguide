@@ -14,5 +14,5 @@ Note, if using the commands in the proxy channel or `/8`, ignore the `!` prefix
 
 Command | Argument(s) | Example | Description
 ---|---|---|---
-**!tu** | on, off | !mp on| Turns the module either on or off (on by default)
-**!tu** | color | !mp unmount| Toggles color mode on/off
+**!tu** | on, off | !tu on| Turns the module either on or off (on by default)
+**!tu** | color | !tu color| Toggles color mode on/off
