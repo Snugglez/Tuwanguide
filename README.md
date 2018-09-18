@@ -1,4 +1,4 @@
-# tuwang
+# tuwanguide
 Calls out the colors in proxy chat to make things a lot easier(can be edited to be any chat channel)
 
 ![Screenshot](https://i.gyazo.com/813825767eb743a8a5346b6ed51df6ae.png)
@@ -9,8 +9,10 @@ NOW IN COLOR!
 
 Simple? yea simple
 
-Command to toggle off `!tuwang` or just `tuwang` if in proxy chat
+# Commands
+Note, if using the commands in the proxy channel or `/8`, ignore the `!` prefix
 
-Command to toggle color mode `!tucolor` or just `tucolor` if in proxy chat
-
-Command required, but really... if you don't have command, the fuck even by now, go get command
+Command | Argument(s) | Example | Description
+---|---|---|---
+**!tu** | on, off | !mp on| Turns the module either on or off (on by default)
+**!tu** | color | !mp unmount| Toggles color mode on/off

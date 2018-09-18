@@ -1,14 +1,15 @@
 {
-    "defs": {
-        "S_ACTION_STAGE": 4,
-        "S_DUNGEON_EVENT_MESSAGE": 1
-    },
-  "files": {
-    "config.json": {
-      "overwrite": false,
-	  "hash": "9f83e1fa56cc657fdad5e7ba73fa92640c8ab08163ea9b17492595e26a332991"},
-    "index.js": "4e18a99584a84b57989369a616ec96757e552fea702d681e5d9a0ed415b51000",
-    "module.json": "c5ea444284818ac944551e7c18c4289b314c4a0a937d6b9169b40ec75086ff4a",
-    "README.md": "3793bacdaea7cc6ba82f128a279ce329818d5e8784f655d33d498c4a65c098d7"
-  }
+	"defs": {
+		"S_ACTION_STAGE": [4,7,8],
+		"S_DUNGEON_EVENT_MESSAGE": [1,2]
+	},
+	"files": {
+		"README.md": "8f5d1ae375389342e659f1c0bb1a82a8de9c2c57ef74e87b6f59e60c77606637",
+		"config.json": {
+			"overwrite": false,
+			"hash": "9f83e1fa56cc657fdad5e7ba73fa92640c8ab08163ea9b17492595e26a332991"
+		},
+		"index.js": "9422dd7595ec0936bee82896bc18e25e895ae5e60c0f3e1ec1a6660f82619c17",
+		"module.json": "5fbafb08485ddd4dfcb9eb2441e53db6e84736ec9291d8fe7d6f003800e6d349"
+	}
 }
