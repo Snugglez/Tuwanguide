@@ -28,12 +28,13 @@ d.command.message("--Toggles color mode on or off")
 })
 
 d.hook('S_DUNGEON_EVENT_MESSAGE', 2, (e) => {
+if(!enabled) return
 if (e.message.includes('700102016')) { d.command.message('_________') }
 // 700102017 for the start message
 })
 
 d.hook('S_ACTION_STAGE', (d.base.majorPatchVersion >= 75) ? 8 : 7, (e) => {
-if (!(e.skill.id === 1103 || e.skill.id === 1104)) return
+if (!(e.skill.id === 1103 || e.skill.id === 1104 || e.skill.huntingZoneId === 623 || enabled)) return
 switch (e.templateId) {
 case 1001:
 if (color) d.command.message('<font color="#fc76d4">PINK</font>')
