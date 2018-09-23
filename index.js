@@ -34,7 +34,7 @@ if (e.message.includes('700102016')) { d.command.message('_________') }
 })
 
 d.hook('S_ACTION_STAGE', (d.base.majorPatchVersion >= 75) ? 8 : 7, (e) => {
-if (!(e.skill.id === 1103 || e.skill.id === 1104 || e.skill.huntingZoneId === 623 || enabled)) return
+if (!(e.skill.id === 1103 && e.skill.huntingZoneId === 623 || e.skill.id === 1104 && e.skill.huntingZoneId === 623 || enabled)) return
 switch (e.templateId) {
 case 1001:
 if (color) d.command.message('<font color="#fc76d4">PINK</font>')
