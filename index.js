@@ -33,7 +33,7 @@ if (e.message.includes('700102016')) { d.command.message('_________') }
 // 700102017 for the start message
 })
 
-d.hook('S_ACTION_STAGE', (d.base.majorPatchVersion >= 75) ? 8 : 7, (e) => {
+d.hook('S_ACTION_STAGE', (d.majorPatchVersion >= 75) ? 8 : 7, (e) => {
 if (enabled && e.skill.huntingZoneId === 623 && (e.skill.id === 1103 || e.skill.id === 1104)) {
 switch (e.templateId) {
 case 1001:
