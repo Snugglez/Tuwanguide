@@ -1,5 +1,9 @@
 {
 	"disableAutoUpdate": false,
+    "name": "Tuwanguide",
+    "author": "Snug",
+    "description": "Calls out the colors for the Tuwangi minigame/guardian mission in proxy chat to make things a lot easier",
+    "version": "1.0",
 	"servers": ["https://raw.githubusercontent.com/Snugglez/Tuwanguide/master/"],
 	"supportUrl": "https://github.com/Snugglez/Tuwanguide/blob/master/README.md"
 }
